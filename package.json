@@ -1,0 +1,15 @@
+{
+  "name": "auto-formatting",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+      "format": "npx prettier --write",
+      "format:check": "npx prettier -check"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "prettier": "^2.8.8"
+  }
+}

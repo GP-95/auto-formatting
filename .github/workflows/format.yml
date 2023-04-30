@@ -1,0 +1,13 @@
+name: check-format
+run-name: Running prettier check
+on: [push]
+jobs:
+  check-file-formatting:
+    runs-on: ubuntu-;atest
+    steps:
+      -uses: actions/checkout@v3
+      -uses: actions/setup-node@v3
+      with:
+        node-verssion: '20'
+      -run: npm install
+      -run: npm run format:check
