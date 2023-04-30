@@ -17,5 +17,6 @@ jobs:
           FILES_TO_CHECK=$(echo $CHANGED_FILES | xargs -n1 | grep -E '\.ts$')
           # Check changed .ts files if any found
           if [ -n "$FILES_TO_CHECK" ]; then
+            echo $FILES_TO_CHECK
             npm run format:check $FILES_TO_CHECK
           fi
