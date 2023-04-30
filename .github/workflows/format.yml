@@ -6,10 +6,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
+        with: 
+        fetch-depth: 0
       - uses: actions/setup-node@v3
       - run: npm install
       # - run: npm run format:check
       - run: |
-          CHANGED_FILES=$(git diff --name-only main...${GITHUB_REF#refs/heads/})
+          CHANGED_FILES=$(git diff --name-only main)
           PRETTIER_FILES=$(echo $CHANGED_FILES | xargs -n1 | grep -E '\.(js|ts)$')
           npx prettier --check $PRETTIER_FILES
