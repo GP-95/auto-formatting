@@ -11,7 +11,9 @@ jobs:
       - uses: actions/setup-node@v3
       - run: npm install
       - run: |
+          # Get files changed on this branch
           CHANGED_FILES=$(git diff --name-only origin/main)
+          # Filter out non .ts files
           FILES_TO_CHECK=$(echo $CHANGED_FILES | xargs -n1 | grep -E '\.ts$')
-          echo $FILES_TO_CHECK
+          # Check changed .ts files
           npm run format:check $FILES_TO_CHECK
