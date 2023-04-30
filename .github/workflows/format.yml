@@ -3,7 +3,7 @@ run-name: Running prettier check
 on: [push]
 jobs:
   check-file-formatting:
-    runs-on: ubuntu-;atest
+    runs-on: ubuntu-latest
     steps:
       -uses: actions/checkout@v3
       -uses: actions/setup-node@v3
