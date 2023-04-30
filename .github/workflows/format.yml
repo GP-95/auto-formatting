@@ -3,11 +3,15 @@ run-name: Running prettier check
 on: [push]
 jobs:
   check-file-formatting:
-    runs-on: ubuntu-;atest
+    runs-on: ubuntu-latest
     steps:
-      -uses: actions/checkout@v3
-      -uses: actions/setup-node@v3
-      with:
-        node-verssion: '20'
-      -run: npm install
-      -run: npm run format:check
+      - uses: actions/checkout@v3
+        with: 
+          fetch-depth: 0
+      - uses: actions/setup-node@v3
+      - run: npm install
+      - run: |
+          CHANGED_FILES=$(git diff --name-only origin/main)
+          FILES_TO_CHECK=$(echo $CHANGED_FILES | xargs -n1 | grep -E '\.ts$')
+          echo FILES_TO_CHECK
+          npx prettier --check $FILES_TO_CHECK
