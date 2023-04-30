@@ -10,7 +10,6 @@ jobs:
           fetch-depth: 0
       - uses: actions/setup-node@v3
       - run: npm install
-        # Test 123
       - run: |
           # Get files changed on this branch
           CHANGED_FILES=$(git diff --name-only origin/main)
