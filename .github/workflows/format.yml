@@ -10,6 +10,7 @@ jobs:
       - run: npm install
       # - run: npm run format:check
       - run: |
+          FIRST_COMMIT=$(git log --no-merges --format=%H | tail -1)
           CHANGED_FILES=$(git diff --name-only main...HEAD)
           PRETTIER_FILES=$(echo $CHANGED_FILES | xargs -n1 | grep -E '\.(js|ts)$')
           npx prettier --check $PRETTIER_FILES
