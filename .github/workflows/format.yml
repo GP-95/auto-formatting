@@ -16,5 +16,7 @@ jobs:
           CHANGED_FILES=$(git diff --name-only origin/main)
           # Filter out non .ts files
           FILES_TO_CHECK=$(echo $CHANGED_FILES | xargs -n1 | grep -E '\.ts$')
-          # Check changed .ts files
-          npm run format:check $FILES_TO_CHECK
+          # Check changed .ts files if any found
+          if [ -n "$FILES_TO_CHECK" ]; then
+            npm run format:check $FILES_TO_CHECK
+          fi
