@@ -12,6 +12,6 @@ jobs:
       - run: npm install
       # - run: npm run format:check
       - run: |
-          CHANGED_FILES=$(git diff --name-only main)
+          CHANGED_FILES=$(git diff --name-only origin/main)
           PRETTIER_FILES=$(echo $CHANGED_FILES | xargs -n1 | grep -E '\.(js|ts)$')
           npx prettier --check $PRETTIER_FILES
