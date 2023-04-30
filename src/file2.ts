@@ -1,1 +1,1 @@
-const x = 'some double quoted text'
+const x = 'some double quoted text';
