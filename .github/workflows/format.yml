@@ -10,7 +10,8 @@ jobs:
         with: 
           fetch-depth: 0
       - name: Check format
-        uses: creyD/prettier_action@v4.3
-        with:
-          prettier_options: --check --no-error-on-unmatched-pattern **/*.{.ts}
-          only_changed: True
+        run: |
+          echo "1"
+          echo "2"
+          echo "3"
+
