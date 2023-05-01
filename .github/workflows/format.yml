@@ -8,10 +8,6 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
         with: 
-          ref: ${{ github.head_ref }}
           fetch-depth: 0
       - name: Check format
-        uses: creyD/prettier_action@v4.3
-        with:
-          prettier_options: --check --no-error-on-unmatched-pattern **.*.{.ts}
-          only_changed: True
+        run: bash .github/prettier.sh
