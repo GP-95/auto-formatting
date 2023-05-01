@@ -10,4 +10,5 @@ jobs:
         with: 
           fetch-depth: 0
       - name: Check format
+        # Some test comment
         run: bash .github/prettier.sh
