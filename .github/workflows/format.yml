@@ -10,16 +10,4 @@ jobs:
         with: 
           fetch-depth: 0
       - name: Check format
-        run: |
-          CHANGED_FILES=$(git diff --name-only origin/main | xargs -n1 | grep -E '\.ts$')
-          echo '------------'
-          echo $CHANGED_FILES
-          echo '------------'
-          if [ "$CHANGED_FILES" ]; then
-            echo "Found changes in .ts files - checking formatting"
-            npm run format:check $CHANGED_FILES
-          else
-            echo "No changes found in .ts files"
-            exit 0
-          fi
-
+        run: run path/prettier.sh
