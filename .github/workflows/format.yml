@@ -10,4 +10,4 @@ jobs:
         with: 
           fetch-depth: 0
       - name: Check format
-        run: run path/prettier.sh
+        run: bash path/prettier.sh
