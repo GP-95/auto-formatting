@@ -10,6 +10,7 @@ jobs:
           ref: ${{ github.head_ref }}
           fetch-depth: 0
       - uses: actions/setup-node@v3
+      - run: npm install
       - run: |
           CHANGED_FILES=$(git diff --name-only origin/main)
           FILES_TO_CHECK=$(echo $CHANGED_FILES | xargs -n1 | grep -E '\.ts$')
