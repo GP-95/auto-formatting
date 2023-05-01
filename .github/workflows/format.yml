@@ -12,5 +12,5 @@ jobs:
       - name: Check format
         uses: creyD/prettier_action@v4.3
         with:
-          prettier_options: --check --no-error-on-unmatched-pattern **.*.{.ts}
+          prettier_options: --check --no-error-on-unmatched-pattern **/*.{.ts}
           only_changed: True
