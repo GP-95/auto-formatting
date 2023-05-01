@@ -11,7 +11,7 @@ jobs:
           fetch-depth: 0
       - name: Check format
         run: |
-          echo "1"
-          echo "2"
-          echo "3"
+          CHANGED_FILES=$(git diff --name-only origin/main | xargs -n1)
+          echo $CHANGED_FILES
+          # FILES_TO_CHECK=$(echo $CHANGED_FILES | xargs -n1 | grep -E '\.ts$')
 
