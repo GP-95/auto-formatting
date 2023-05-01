@@ -5,13 +5,13 @@ jobs:
   prettier:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - name: Checkout
+        uses: actions/checkout@v3
         with: 
           ref: ${{ github.head_ref }}
           fetch-depth: 0
-      - uses: actions/setup-node@v3
-      - run: npm install
-      - run: |
-          CHANGED_FILES=$(git diff --name-only origin/main)
-          FILES_TO_CHECK=$(echo $CHANGED_FILES | xargs -n1 | grep -E '\.ts$')
-          npm run format:check $FILES_TO_CHECK
+      - name: Check format
+        uses: creyD/prettier_action@v4.3
+        with:
+          prettier_options: --check --no-error-on-unmatched-pattern **.*.{.ts}
+          only_changed: True
