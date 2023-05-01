@@ -24,4 +24,3 @@ jobs:
             echo "No diffs found on this branch for .ts files."
             exit 0
           fi
-          # git diff --name-only origin/main | xargs -n1 | grep -E '\.ts$'
